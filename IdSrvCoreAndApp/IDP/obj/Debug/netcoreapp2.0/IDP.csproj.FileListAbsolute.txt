@@ -1,0 +1,11 @@
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\bin\Debug\netcoreapp2.0\IDP.deps.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\bin\Debug\netcoreapp2.0\IDP.runtimeconfig.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\bin\Debug\netcoreapp2.0\IDP.runtimeconfig.dev.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\bin\Debug\netcoreapp2.0\IDP.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.csproj.CoreCompileInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.AssemblyInfoInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.AssemblyInfo.cs
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\bin\Debug\netcoreapp2.0\IDP.pdb
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.csprojResolveAssemblyReference.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\IDP\obj\Debug\netcoreapp2.0\IDP.pdb
