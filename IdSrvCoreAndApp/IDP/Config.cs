@@ -26,7 +26,9 @@ namespace IDP
                         new Claim("given_name", "Application"),
                         new Claim("family_name", "Admin"),
                         new Claim("address", "1234 Admin Blvd"),
-                        new Claim("role", "Admin")
+                        new Claim("role", "Admin"),
+                        new Claim("company", "Small Startup 6544"),
+                        new Claim("subscriptionlevel", "PayingUser")
                     }
                 },
                 
@@ -41,7 +43,9 @@ namespace IDP
                         new Claim("given_name", "Application"),
                         new Claim("family_name", "User"),
                         new Claim("address", "4321 User Way"),
-                        new Claim("role", "User")
+                        new Claim("role", "User"),
+                        new Claim("company", "Big Corporate 1"),
+                        new Claim("subscriptionlevel", "PayingUser")
                     }
                 }
             };
@@ -59,7 +63,30 @@ namespace IDP
                     "roles",
                     "Your role(s)",
                     new List<string> { "role" }
+                ),
+                new IdentityResource(
+                    "company",
+                    "The company you work for",
+                    new List<string> { "company" }
+                ),
+                new IdentityResource(
+                    "subscriptionlevel",
+                    "Your subscription level",
+                    new List<string> { "subscriptionlevel" }
                 )
+            };
+        }
+
+        // API-related resources (scopes)
+        public static IEnumerable<ApiResource> GetApiResources()
+        {
+            return new List<ApiResource>
+            {
+                new ApiResource("application1api", "Application1 API",
+                new List<string> { "role" })
+                {
+                    ApiSecrets = { new Secret("apisecret".Sha256()) }
+                }
             };
         }
 
@@ -72,6 +99,10 @@ namespace IDP
                     ClientName = "Application1",
                     ClientId = "Application1Client",
                     AllowedGrantTypes = GrantTypes.Hybrid,
+                    AccessTokenType = AccessTokenType.Reference,
+                    AccessTokenLifetime = 120,
+                    AllowOfflineAccess = true,
+                    UpdateAccessTokenClaimsOnRefresh = true,
                     RedirectUris = new List<string>()
                     {
                         "https://localhost:44342/signin-oidc"
@@ -85,7 +116,10 @@ namespace IDP
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
-                        "roles"
+                        "roles",
+                        "application1api",
+                        "company",
+                        "subscriptionlevel"
                     },
                     ClientSecrets =
                     {

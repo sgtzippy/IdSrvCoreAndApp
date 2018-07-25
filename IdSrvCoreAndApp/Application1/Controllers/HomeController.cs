@@ -9,11 +9,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using IdentityModel.Client;
+using Application1.Services;
+using Newtonsoft.Json;
 
 namespace Application1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IApplication1HttpClient _application1HttpClient;
+
+        public HomeController(IApplication1HttpClient application1HttpClient)
+        {
+            _application1HttpClient = application1HttpClient;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -40,21 +49,73 @@ namespace Application1.Controllers
 
             await WriteOutIdentityInformation();
 
-            ViewData["Message"] = "Your application description page.";
+            var httpClient = await _application1HttpClient.GetClient();
 
-            return View(new AboutViewModel(address));
+            var valuesResponse = await httpClient.GetAsync("api/values").ConfigureAwait(false);
+
+            if (valuesResponse.IsSuccessStatusCode)
+            {
+                var dataAsString = await valuesResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var data = JsonConvert.DeserializeObject<string>(dataAsString);
+
+                return View(new AboutViewModel(address, data));
+            }
+            else if (valuesResponse.StatusCode == System.Net.HttpStatusCode.Unauthorized ||
+                valuesResponse.StatusCode == System.Net.HttpStatusCode.Forbidden)
+            {
+                return RedirectToAction("AccessDenied", "Authorization");
+            }
+
+            throw new Exception($"A problem happened while calling the API: {valuesResponse.ReasonPhrase}");
         }
 
         [Authorize(Roles = "Admin")]
         public IActionResult Admin()
         {
-            ViewData["Message"] = "Your admin page.";
+            return View();
+        }
 
+        [Authorize(Policy = "CanViewSubscription")]
+        public IActionResult Subscription()
+        {
             return View();
         }
 
         public async Task Logout()
         {
+            var discoveryClient = new DiscoveryClient("https://localhost:44300/");
+            var metaDataResponse = await discoveryClient.GetAsync();
+
+            var revocationClient = new TokenRevocationClient(
+                metaDataResponse.RevocationEndpoint,
+                "Application1Client",
+                "secret"
+            );
+
+            var accessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                var revokeAccessTokenResponse = await revocationClient.RevokeAccessTokenAsync(accessToken);
+
+                if (revokeAccessTokenResponse.IsError)
+                {
+                    throw new Exception("A problem was encountered while revoking the access token.", revokeAccessTokenResponse.Exception);
+                }
+            }
+
+            var refreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            if (!string.IsNullOrWhiteSpace(refreshToken))
+            {
+                var revokeRefreshTokenResponse = await revocationClient.RevokeRefreshTokenAsync(refreshToken);
+
+                if (revokeRefreshTokenResponse.IsError)
+                {
+                    throw new Exception("A problem was encountered while revoking the refresh token.", revokeRefreshTokenResponse.Exception);
+                }
+            }
+            
             // Clears the local cookie ("Cookies" must match name from scheme)
             await HttpContext.SignOutAsync("Cookies");
             await HttpContext.SignOutAsync("oidc");

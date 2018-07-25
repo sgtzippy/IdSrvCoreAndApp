@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Application1API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class ValuesController : Controller
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var isAdmin = User.Claims.Where(c => c.Type == "role").Any(c => c.Value == "Admin");
+
+            var data = $"This is {(isAdmin ? "admin" : "user")} data from the API";
+            return Ok(data);
         }
 
         // GET api/values/5

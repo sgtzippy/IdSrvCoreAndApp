@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizaionService
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,6 +38,10 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li><a asp-area="" asp-controller="Home" asp-action="Admin">Admin</a></li>
+                    }
+                    @if ((await AuthorizaionService.AuthorizeAsync(User, "CanViewSubscription")).Succeeded)
+                    {
+                        <li><a asp-area="" asp-controller="Home" asp-action="Subscription">Subscription</a></li>
                     }
                     @if (User.Identity.IsAuthenticated)
                     {

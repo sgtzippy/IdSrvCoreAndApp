@@ -10,6 +10,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using IdentityModel;
+using Microsoft.AspNetCore.Http;
+using Application1.Services;
 
 namespace Application1
 {
@@ -27,6 +29,22 @@ namespace Application1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddAuthorization(authorizationOptions =>
+            {
+                authorizationOptions.AddPolicy(
+                    "CanViewSubscription",
+                    policyBuilder =>
+                    {
+                        policyBuilder.RequireAuthenticatedUser();
+                        policyBuilder.RequireClaim("company", "Big Corporate 1", "Small Startup 4");
+                        policyBuilder.RequireClaim("subscriptionlevel", "PayingUser");
+                    }
+                );
+            });
+            
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IApplication1HttpClient, Application1HttpClient>();
 
             services
                 .AddAuthentication(options =>
@@ -48,6 +66,10 @@ namespace Application1
                     options.Scope.Add("profile");
                     options.Scope.Add("address");
                     options.Scope.Add("roles");
+                    options.Scope.Add("company");
+                    options.Scope.Add("subscriptionlevel");
+                    options.Scope.Add("application1api");
+                    options.Scope.Add("offline_access");
                     options.SaveTokens = true;
                     options.ClientSecret = "secret";
                     options.GetClaimsFromUserInfoEndpoint = true;
@@ -55,6 +77,8 @@ namespace Application1
                     options.ClaimActions.DeleteClaim("sid");
                     options.ClaimActions.DeleteClaim("idp");
                     options.ClaimActions.MapUniqueJsonKey("role", "role");
+                    options.ClaimActions.MapUniqueJsonKey("company", "company");
+                    options.ClaimActions.MapUniqueJsonKey("subscriptionlevel", "subscriptionlevel");
 
                     options.TokenValidationParameters = new TokenValidationParameters
                     {

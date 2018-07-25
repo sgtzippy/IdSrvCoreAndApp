@@ -1,0 +1,11 @@
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\bin\Debug\netcoreapp2.0\Application1API.deps.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\bin\Debug\netcoreapp2.0\Application1API.runtimeconfig.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\bin\Debug\netcoreapp2.0\Application1API.runtimeconfig.dev.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\bin\Debug\netcoreapp2.0\Application1API.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\bin\Debug\netcoreapp2.0\Application1API.pdb
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.csprojResolveAssemblyReference.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.csproj.CoreCompileInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.AssemblyInfoInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.AssemblyInfo.cs
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1API\obj\Debug\netcoreapp2.0\Application1API.pdb
