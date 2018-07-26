@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,18 +8,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using IdentityModel.Client;
-using Application1.Services;
 using Newtonsoft.Json;
+using Application1.Services.Contract.Interfaces;
 
 namespace Application1.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IApplication1HttpClient _application1HttpClient;
+        private readonly IService1 _service1;
 
-        public HomeController(IApplication1HttpClient application1HttpClient)
+        public HomeController(IApplication1HttpClient application1HttpClient, IService1 service1)
         {
             _application1HttpClient = application1HttpClient;
+            _service1 = service1;
         }
 
         public IActionResult Index()
@@ -78,7 +79,8 @@ namespace Application1.Controllers
         [Authorize(Policy = "CanViewSubscription")]
         public IActionResult Subscription()
         {
-            return View();
+            var model = new SubscriptionViewModel(_service1.GetMeSomeNames());
+            return View(model);
         }
 
         public async Task Logout()

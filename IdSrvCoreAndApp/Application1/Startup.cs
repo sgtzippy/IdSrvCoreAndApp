@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +7,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using IdentityModel;
 using Microsoft.AspNetCore.Http;
-using Application1.Services;
+using Application1.Services.Contract.Interfaces;
+using Application1.Services.Services;
+using Application1.Repositories.Contract.Interfaces;
+using Application1.Repositories.Repositories;
 
 namespace Application1
 {
@@ -44,6 +43,9 @@ namespace Application1
             });
             
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IService1, Service1>();
+            services.AddSingleton<IRepository1, Repository1>();
+            services.AddSingleton<IRepository2, Repository2>();
             services.AddScoped<IApplication1HttpClient, Application1HttpClient>();
 
             services

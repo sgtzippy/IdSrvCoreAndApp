@@ -1,0 +1,13 @@
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.Contract.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.csprojResolveAssemblyReference.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.csproj.CoreCompileInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.AssemblyInfoInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.AssemblyInfo.cs
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.deps.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.runtimeconfig.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.runtimeconfig.dev.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.pdb
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\bin\Debug\netcoreapp2.1\Application1.Services.Contract.pdb
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services\obj\Debug\netcoreapp2.1\Application1.Services.pdb

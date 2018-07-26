@@ -1,4 +1,5 @@
-﻿using IdentityModel.Client;
+﻿using Application1.Services.Contract.Interfaces;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
@@ -9,7 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Application1.Services
+namespace Application1.Services.Services
 {
     public class Application1HttpClient : IApplication1HttpClient
     {

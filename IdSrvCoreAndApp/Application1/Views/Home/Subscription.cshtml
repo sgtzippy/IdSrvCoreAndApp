@@ -1,6 +1,15 @@
-﻿@{
+﻿@model Application1.Models.SubscriptionViewModel
+
+@{
     ViewData["Title"] = "Subscription";
 }
 
 <div>This is the subscription page. There isn't much to it yet.</div>
 
+<div>Names in repository:</div>
+<ul>
+    @foreach (var name in Model.Names)
+    {
+        <li>@name</li>
+    }
+</ul>

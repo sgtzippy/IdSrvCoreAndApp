@@ -1,0 +1,9 @@
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\bin\Debug\netcoreapp2.1\Application1.Services.Contract.deps.json
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\bin\Debug\netcoreapp2.1\Application1.Services.Contract.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\bin\Debug\netcoreapp2.1\Application1.Services.Contract.pdb
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.csprojResolveAssemblyReference.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.csproj.CoreCompileInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.AssemblyInfoInputs.cache
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.AssemblyInfo.cs
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.dll
+C:\Projects\Main\IdSrvCoreAndApp\IdSrvCoreAndApp\Application1.Services.Contract\obj\Debug\netcoreapp2.1\Application1.Services.Contract.pdb
